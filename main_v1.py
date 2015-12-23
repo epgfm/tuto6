@@ -3,7 +3,7 @@
 import os, time
 from snake import *
 
-def run_test():
+def main():
 
     g = genGrid(10, 20)
     s = genSnake((0, 0), (1, 0), 'red')
@@ -50,7 +50,7 @@ def run_test():
 
 
 if __name__ == '__main__':
-    run_test()
+    main()
 
 
 
