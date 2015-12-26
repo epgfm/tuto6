@@ -123,6 +123,8 @@ def genSnake(position, speed, color):
 
     >>> genSnake((1, 1), (1, 0), 'red')
     [[1, 1], [1, 0], 'red', True, 1]
+    >>> genSnake((0, 1), (-1, 0), 'green')
+    [[0, 1], [-1, 0], 'green', True, 1]
     '''
 
 
@@ -161,6 +163,8 @@ def getNextPosition(snake):
 
     >>> getNextPosition([[0, 0], [1, 0], 'red', True, 1])
     (1, 0)
+    >>> getNextPosition([[0, 0], [0, 1], 'red', True, 1])
+    (0, 1)
     '''
 
 
@@ -257,6 +261,12 @@ def updateGrid(grid, snake):
     +       + 
     +       + 
     +   *   + 
+    + + + + + 
+    >>> turnRight(s) ; updateSnake(g, s) ; updateGrid(g, s) ; displayGrid(g)
+    + + + + + 
+    +       + 
+    +   *   + 
+    +       + 
     + + + + + 
     '''
 
