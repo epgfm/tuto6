@@ -33,6 +33,12 @@ def displayGrid(grid):
     +     * + 
     + #   # + 
     + + + + + 
+    >>> displayGrid(genGrid(3, 6))
+    + + + + + + + + 
+    +             + 
+    +             + 
+    +             + 
+    + + + + + + + + 
     '''
 
 
