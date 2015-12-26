@@ -19,8 +19,8 @@ def genGrid(nRows, nCols):
 def displayGrid(grid):
     ''' (grid) -> NoneType
 
-    Display the grid to standard output. The grid must be surrounded by '+'
-    symbols.
+    Display the grid to standard output. The grid must be surrounded by '+ '
+    symbols. (Be careful: there's a space after the '+' sign)
 
     >>> s = [['8', ' ', ' '], [' ', ' ', '*']] ; displayGrid(s)
     + + + + + 
