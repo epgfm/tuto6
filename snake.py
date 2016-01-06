@@ -165,6 +165,8 @@ def getNextPosition(snake):
     (1, 0)
     >>> getNextPosition([[0, 0], [0, 1], 'red', True, 1])
     (0, 1)
+    >>> s = genSnake((1, 2), (0, 1), "red") ; pos = getNextPosition(s) ; s
+    [[1, 2], [0, 1], 'red', True, 1]
     '''
 
 
