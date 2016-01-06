@@ -3,7 +3,7 @@
 import select, termios, sys, time, tty
 
 def inputWithTimeout(timeout):
-    ''' (float) -> NoneType
+    ''' (float) -> str
 
     Gets input from standard input, for 'timeout' seconds.
     '''
@@ -16,7 +16,6 @@ def inputWithTimeout(timeout):
     while not over:
         # Select call returns when one char is available or timeout reached.
         r, w, x = select.select([sys.stdin], [], [], timeout - t_now + t_start)
-        # Depending on the char, issue command to the snake.
         if sys.stdin in r:
             string += sys.stdin.read(1)
         # update time counters
