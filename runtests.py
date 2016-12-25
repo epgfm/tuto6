@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
-import doctest, string
+import sys, doctest, string, StringIO
+from colors import colorString
 from snake import *
 
 targets = [
@@ -25,15 +26,45 @@ targets = [
     ("updateGrids", updateGrids)
 ]
 
+def ask_release_stdout(fakestdout):
+    # Function that prompts the user to realease content of fakestdout
+    while True:
+        action = raw_input("Print failed tests? [F(irst)/a(ll)/n(one)] ")
+        action = action.lower()
+        if action == '' or action == 'f':
+            print fakestdout.getvalue().split("*" * 70)[1]
+            break
+        elif action == 'a':
+            print fakestdout.getvalue()
+            break
+        elif action.lower() == 'n':
+            break
+
+
+fakestdout = StringIO.StringIO() # Fake file object for Stdout interception
+stdout = sys.stdout # Backup stdout
+
 __test__ = {}
 for fname, f in targets:
     __test__[fname] = f
+
+    # Intercept Stdout
+    sys.stdout = fakestdout
     res = doctest.testmod()
+    # Restore Stdout
+    sys.stdout = stdout
     test = string.ljust("{}".format(fname), 20, ' ') + " {}"
-    print test.format(res)
-    del __test__[fname]
-    if res.failed != 0:
+
+    print "=" * 79
+    if res.failed == 0:
+        print colorString("green", test.format(res))
+    else:
+        print colorString("red", test.format(res))
+        print
+        ask_release_stdout(fakestdout)
         break
+
+    del __test__[fname]
     if fname == "updateGrid":
         print "-> You can now test main_v1.py"
     elif fname == "doCmd":
