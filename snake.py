@@ -272,6 +272,12 @@ def updateGrid(grid, snake):
     +   *   + 
     +       + 
     + + + + + 
+    >>> killSnake(s); updateGrid(g, s) ; displayGrid(g)
+    + + + + + 
+    +       + 
+    +       + 
+    +       + 
+    + + + + + 
     '''
 
 
