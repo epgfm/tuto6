@@ -245,6 +245,8 @@ def updateSnake(grid, snake):
     [[0, 0], [-1, 0], 'red', True, 1]
     >>> updateSnake(g, s) ; s
     [[0, 0], [-1, 0], 'red', False, 1]
+    >>> s = genSnake((0, 0), (-1, 0), 'red') ; placeObject(g, 4, 0, '*') ; updateSnake(g, s) ; s
+    [[0, 0], [-1, 0], 'red', False, 1]
     '''
 
 
