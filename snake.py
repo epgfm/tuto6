@@ -51,6 +51,10 @@ def pointInsideGrid(grid, point):
 
     >>> pointInsideGrid(genGrid(4, 5), (4, 5))
     False
+    >>> pointInsideGrid(genGrid(4, 5), (3, 4))
+    False
+    >>> pointInsideGrid(genGrid(4, 5), (5, 3))
+    False
     >>> pointInsideGrid(genGrid(6, 5), (4, 5))
     True
     >>> pointInsideGrid(genGrid(4, 5), (3, 3))
